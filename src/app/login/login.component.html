@@ -1,0 +1,10 @@
+<div class="login-container" [formGroup]="formLogin">
+  <h1>Login</h1>
+  <mat-form-field class="input-login">
+    <input matInput placeholder="Usuario" formControlName="username">
+  </mat-form-field>
+  <mat-form-field class="input-login">
+    <input matInput placeholder="Password" value="" formControlName="password">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="login()" [disabled]="formLogin.invalid || loading">Ingresar</button>
+</div>
