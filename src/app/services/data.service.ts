@@ -7,6 +7,8 @@ import { Subject, Observable } from 'rxjs';
 export class DataService {
 
   private isLoading: Subject<boolean> = new Subject<boolean>();
+  private message: Subject<string> = new Subject<string>();
+  private token: string = '';
 
   constructor() { }
 
@@ -16,6 +18,23 @@ export class DataService {
 
   getIsLoading(): Observable<boolean> {
     return this.isLoading.asObservable();
+  }
+
+  setMessage(msg: string){
+    this.message.next(msg);
+  }
+
+  getMessage(): Observable<string>{
+    return this.message.asObservable();
+  }
+
+  setToken(token: string){
+    this.token = token;
+    sessionStorage.setItem('token', token);
+  }
+
+  getToken(): string {
+    return sessionStorage.getItem('token');
   }
 
 }

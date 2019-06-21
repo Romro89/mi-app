@@ -1,3 +1,5 @@
-<mat-toolbar color="accent">Mi App Angular</mat-toolbar>
+<mat-toolbar color="accent">Mi App Angular
+  <button mat-button (click)="logout()" *ngIf="userLogged()">Salir</button>
+</mat-toolbar>
 <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 <router-outlet></router-outlet>
